@@ -1,18 +1,20 @@
 public class Admin extends Person{
 
-    Admin(String name, Address address, String email, String phone, Account account) {
+    public Admin(String name, Address address, String email, String phone, Account account) {
         super(name, address, email, phone, account);
     }
 
-    public boolean addAircraft(){
-
+    public boolean addAircraft(Aircraft aircraft, Airline airline){
+        airline.getAircrafts().add(aircraft);
         return true;
     }
-    public boolean addFlight(){
+    public boolean addFlight(Flight flight, Airline airline){
+        airline.getFlights().add(flight);
         return true;
     }
-    public boolean blockUser(){
-        return false;
+    public boolean blockUser(Person person){
+        person.getAccount().setStatus(AccountStatus.BLOCKED);
+        return true;
     }
 }
 
