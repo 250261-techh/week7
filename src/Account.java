@@ -12,7 +12,7 @@ public class Account {
         }
     }
 
-    Account(String id, String password){
+    public Account(String id, String password){
         this.id=id;
         this.password=password;
         this.status=AccountStatus.ACTIVE;
