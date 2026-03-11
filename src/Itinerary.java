@@ -32,4 +32,10 @@ public class Itinerary {
         }
         return false;
     }
+    public boolean cancelItinerary() {
+        for (FlightReservation res : this.reservations) {
+            res.setStatus(ReservationStatus.CANCELLED);
+        }
+        return true;
+    }
 }
