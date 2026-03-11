@@ -24,4 +24,7 @@ public class Aircraft {
     public String getModel(){
         return model;
     }
+    public int getAvailableSeatCount() {
+        return this.seats.size(); 
+    }
 }
