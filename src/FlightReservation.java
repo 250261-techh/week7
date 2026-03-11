@@ -27,6 +27,8 @@ public class FlightReservation {
     }
     public void setStatus(ReservationStatus status) {
         this.status = status;
+        Notification updateAlert = new SmsNotification(202, new Date(), "Your reservation status is now: " + status, "+1234567890");
+        updateAlert.send();
     }
     public ReservationStatus getStatus() {
         return this.status;
@@ -35,5 +37,6 @@ public class FlightReservation {
         seatMap.put(passenger, seat);
         seat.setReservationNumber(this.reservationNumber);
     }
+    
 
 }
