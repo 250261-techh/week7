@@ -17,6 +17,10 @@ public class Account {
         this.password=password;
         this.status=AccountStatus.ACTIVE;
     }
+    public void setStatus(AccountStatus status) {
+        this.status = status;
+    }
+
 }
 
 
