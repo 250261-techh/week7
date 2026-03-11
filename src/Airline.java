@@ -18,4 +18,15 @@ public class Airline {
     public List<Aircraft> getAircrafts() {
         return aircrafts;
     }
+    public List<FlightInstance> searchFlights(Airport source, Airport destination, Date date) {
+        List<FlightInstance> availableFlights = new ArrayList<>();
+        
+        for (Flight flight : this.flights) {
+            if (flight.getDeparture().equals(source) && flight.getArrival().equals(destination)) {
+                availableFlights.addAll(flight.getInstances());
+            }
+        }
+        return availableFlights;
+    }
+
 }
