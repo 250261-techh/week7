@@ -1,4 +1,4 @@
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Flight {
@@ -6,28 +6,34 @@ public class Flight {
     private Airport departure;
     private Airport arrival;
     private int durationInMinutes;
-    private List<WeeklySchedules> weeklySchedules;
-    private List<CustomSchedules> customSchedules;
+    private List<WeeklySchedule> weeklySchedules;
+    private List<CustomSchedule> customSchedules;
     private List<FlightInstance> flightInstances;
-}
+    public Flight(String flightNumber, Airport departure, Airport arrival, int durationInMinutes) {
+        this.flightNumber = flightNumber;
+        this.departure = departure;
+        this.arrival = arrival;
+        this.durationInMinutes = durationInMinutes;
+        this.weeklySchedules = new ArrayList<>();
+        this.customSchedules = new ArrayList<>();
+        this.flightInstances = new ArrayList<>();
+    }
+    public List<FlightInstance> getInstances() {
+        return flightInstances;
+    }
+    public boolean cancel(){
+        for (FlightInstance instance : flightInstances) {
+            instance.cancel();
+        }
+        return true;
+    }
+    public boolean addFlightSchedule(WeeklySchedule schedule) {
+        return weeklySchedules.add(schedule);
+    }
+    public String getFlightNumber() {
+        return flightNumber;
+    }
 
 
-public class FlightInstance {
-    private Date departureTime;
-    private String gate;
-    private FlightStatus status;
-    private Aircraft aircraft;
-    public bool cancel();
-    public void updateStatus(FlightStatus status);
 }
 
-public class FlightReservation {
-    private String reservationNumber;
-    private FlightInstance flight;
-    private Map<Passenger, FlightSeat> seatMap;
-    private Date creationDate;
-    private ReservationStatus status;
-    public static FlightReservation fetchReservationDetails(String
-                                                                    reservationNumber);
-    public List<Passenger> getPassengers();
-}

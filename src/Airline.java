@@ -1,20 +1,21 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Airport {
+public class Airline {
     private String name;
-    private Address address;
     private String code;
     private List<Flight> flights;
-    public Airport(String name, Address address, String code) {
+    private List<Aircraft> aircrafts;
+    public Airline(String name, String code){
         this.name = name;
-        this.address = address;
         this.code = code;
         this.flights = new ArrayList<>();
+        this.aircrafts = new ArrayList<>();
     }
-    public List<Flight> getFlights(){
+    public List<Flight> getFlights() {
         return flights;
     }
+    public List<Aircraft> getAircrafts() {
+        return aircrafts;
+    }
 }
-
-
